@@ -22,6 +22,7 @@ jobs:
   push:
     # needs: build
     runs-on: ubuntu-latest
+    environment: staging
 
     steps:
       # Login to Azure
@@ -42,7 +43,7 @@ jobs:
         run: |
           docker pull herdanis/simple-service:1.0
           docker tag herdanis/simple-service:1.0 llyidregistry.azurecr.io/devops:${{ github.sha }}
-          docker push llyidregistry.azurecr.io/devops:${{ github.sha }}
+          docker push llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
 
       # Logout from Azure
       - name: Azure logout
