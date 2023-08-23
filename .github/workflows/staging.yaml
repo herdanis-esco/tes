@@ -8,16 +8,16 @@ env:
   IMAGE_NAME: llyidregistry.azurecr.io/devops
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #     # Build the Docker image
-  #     - name: Build Docker image
-  #       run: docker build -t $IMAGE_NAME .
+      # Build the Docker image
+      - name: Build Docker image
+        run: docker pull herdanis/simple-service:1.0
 
   push:
     # needs: build
@@ -41,7 +41,6 @@ jobs:
 
       - name: Test push image
         run: |
-          docker pull herdanis/simple-service:1.0
           docker tag herdanis/simple-service:1.0 llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
           docker push llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
 
