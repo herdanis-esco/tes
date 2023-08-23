@@ -22,7 +22,7 @@ jobs:
   push:
     # needs: build
     runs-on: ubuntu-latest
-    environment: staging
+    environment: prod
 
     steps:
       # Login to Azure
