@@ -20,7 +20,7 @@ jobs:
         run: docker pull herdanis/simple-service:1.0
 
   push:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     environment: prod
 
