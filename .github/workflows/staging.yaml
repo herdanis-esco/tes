@@ -42,7 +42,7 @@ jobs:
       - name: Test push image
         run: |
           docker pull herdanis/simple-service:1.0
-          docker tag herdanis/simple-service:1.0 llyidregistry.azurecr.io/devops:${{ github.sha }}
+          docker tag herdanis/simple-service:1.0 llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
           docker push llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
 
       # Logout from Azure
