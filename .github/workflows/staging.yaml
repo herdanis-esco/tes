@@ -25,7 +25,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: prod
+      name: staging
 
     steps:
       # Login to Azure
