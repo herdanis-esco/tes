@@ -3,26 +3,12 @@ name: Staging - Deploy - Backend - Bintanproperties
 
 on:
   workflow_dispatch:
-    branches:
-      - staging
 
 env:
   IMAGE_NAME: llyidregistry.azurecr.io/devops
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Build the Docker image
-      - name: Build Docker image
-        run: docker pull herdanis/simple-service:1.0
-
   push:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: prod
