@@ -3,6 +3,8 @@ name: Staging - Deploy - Backend - Bintanproperties
 
 on:
   workflow_dispatch:
+    branches:
+      - staging
 
 env:
   IMAGE_NAME: llyidregistry.azurecr.io/devops
@@ -22,7 +24,8 @@ jobs:
   push:
     needs: build
     runs-on: ubuntu-latest
-    environment: prod
+    environment:
+      name: prod
 
     steps:
       # Login to Azure
