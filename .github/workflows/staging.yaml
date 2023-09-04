@@ -30,8 +30,8 @@ jobs:
 
       - name: Test push image
         run: |
-          docker pull herdanis/simple-service:1.0
-          docker tag herdanis/simple-service:1.0 llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
+          docker pull llyidregistry.azurecr.io/bintanproperties-springboot-staging:144706b3e3fa6411e40de5adbf4829c42ec19135
+          docker tag llyidregistry.azurecr.io/bintanproperties-springboot-staging:144706b3e3fa6411e40de5adbf4829c42ec19135 llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
           docker push llyidregistry.azurecr.io/devops:${{ github.sha }}-${{ secrets.INI_SECRET }}
 
       # Logout from Azure
